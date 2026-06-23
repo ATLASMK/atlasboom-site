@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Atlas Boom - Theme Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0A0B0D; --bg-1:#0d0f13; --surface:#13161c; --surface-2:#191d25;
+  --line:rgba(255,255,255,.07); --line-2:rgba(255,255,255,.13);
+  --text:#F2F4F7; --muted:#9aa3b2; --muted-2:#5f6776;
+  --amber:#F5A623; --amber-2:#ffc257; --steel:#aeb7c4;
+  --r-card:12px; --r-btn:8px; --r-chip:6px;
+  --display:'Saira Condensed',sans-serif; --body:'Geist',system-ui,sans-serif; --mono:'Geist Mono',monospace;
+  --ease:cubic-bezier(.16,1,.3,1); --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* cinematic ambient + grain (restrained, single warm radial, no AI-glow spam) */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(1100px 620px at 78% -8%,rgba(245,166,35,.07),transparent 62%),
+             radial-gradient(800px 600px at -5% 20%,rgba(174,183,196,.04),transparent 60%);}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{position:relative;z-index:1}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3,.dsp{font-family:var(--display);font-weight:700;line-height:.98;letter-spacing:.4px;text-transform:uppercase}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:3.5px;text-transform:uppercase;color:var(--amber);font-weight:500;display:inline-flex;align-items:center;gap:13px}
+.eyebrow::before{content:"";width:36px;height:2px;background:var(--amber)}
+
+/* NAV */
+.nav{position:absolute;top:0;left:0;right:0;z-index:10}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:13px;font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:.3px;text-transform:uppercase;line-height:1}
+.logo .mark{width:40px;height:40px;flex:none}
+.logo .wm{display:flex;flex-direction:column;line-height:.82}
+.logo .wm small{font-family:var(--mono);font-weight:400;font-size:9px;letter-spacing:3.5px;color:var(--muted);text-transform:uppercase;margin-top:3px}
+.logo b{color:var(--amber)}
+.nav-links{display:flex;gap:32px;font-size:14.5px;color:var(--steel)}
+.nav-links a{position:relative;transition:.25s}
+.nav-links a:hover{color:#fff}
+.nav-cta{display:flex;align-items:center;gap:18px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--display);font-weight:600;
+  text-transform:uppercase;letter-spacing:1px;font-size:15.5px;padding:14px 28px;border-radius:var(--r-btn);
+  transition:.3s var(--ease);white-space:nowrap;border:1.5px solid transparent}
+.btn-amber{background:var(--amber);color:#0A0B0D}
+.btn-amber:hover{background:var(--amber-2);transform:translateY(-2px)}
+.btn-amber:active{transform:translateY(0) scale(.985)}
+.btn-ghost{border-color:var(--line-2);color:#fff}
+.btn-ghost:hover{border-color:var(--steel);transform:translateY(-2px)}
+
+/* HERO - scroll-scrubbed video sequence */
+.hero-scroll{position:relative;height:300vh}
+.hero-sticky{position:sticky;top:0;height:100dvh;overflow:hidden;background:#0A0B0D}
+.hero-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,11,13,.5) 0%,rgba(10,11,13,.12) 32%,rgba(10,11,13,.55) 72%,rgba(10,11,13,.92) 100%)}
+/* full-bleed copy layer, composition framing the crane in the two empty zones */
+.hero-copy{position:absolute;z-index:2;inset:0;pointer-events:none}
+.hero-copy .hl,.hero-copy .hero-foot{position:absolute;opacity:0;will-change:opacity,transform}
+.hero-copy h1{font-weight:900;font-size:clamp(46px,7.2vw,116px);line-height:.82;letter-spacing:-1.7px;margin:0;text-shadow:0 6px 50px rgba(0,0,0,.62)}
+.hero-copy .am{color:var(--amber);text-shadow:0 6px 50px rgba(245,166,35,.32)}
+.hl-1{left:5.5vw;top:13.5vh;max-width:48vw}
+.hl-1 .eyebrow{margin-bottom:18px}
+.hl-2{right:5.5vw;top:38vh;text-align:right;max-width:60vw}
+.hero-foot{left:5.5vw;top:44vh;max-width:400px;pointer-events:auto;--gc:#14171d;--gb:rgba(15,17,21,.34)}
+.hero-foot .lead{color:#14171d;font-weight:500;font-size:16px;line-height:1.5;max-width:34ch;margin-bottom:24px;text-shadow:0 1px 18px rgba(250,250,252,.85)}
+.hero-foot .btn-ghost{border-color:var(--gb);color:var(--gc)}
+.hero-foot .btn-ghost:hover{border-color:var(--gc);color:var(--gc);transform:translateY(-2px)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:34px;margin-top:24px;padding-top:22px;border-top:1px solid rgba(15,17,21,.2)}
+.hero-stats .s b{font-family:var(--display);font-weight:800;font-size:40px;color:#0d1015;display:block;line-height:.9;letter-spacing:-.5px;text-shadow:0 1px 18px rgba(250,250,252,.85)}
+.hero-stats .s span{font-size:12px;color:#39414d;font-weight:500;text-transform:uppercase;letter-spacing:1.6px;margin-top:4px;display:block}
+@media(max-width:1000px){
+  .hero-copy{display:flex;flex-direction:column;justify-content:flex-end;inset:auto 0 0 0;padding:0 24px 8vh;gap:2px}
+  .hero-copy .hl,.hero-copy .hero-foot{position:static;max-width:none;text-align:left}
+  .hero-foot{margin-top:26px}
+  .hero-copy h1{font-size:clamp(40px,11.5vw,86px)}
+  .hero-foot .lead{color:#dbe0e8;font-weight:400;max-width:42ch;text-shadow:0 2px 20px rgba(0,0,0,.75)}
+  .hero-foot{--gc:#fff;--gb:rgba(255,255,255,.2)}
+  .hero-stats{border-top-color:rgba(255,255,255,.1)}
+  .hero-stats .s b{color:#fff;text-shadow:none}
+  .hero-stats .s span{color:var(--muted)}
+}
+
+/* FLEET */
+.section{padding:104px 0;position:relative}
+.bg-soft{background:var(--bg-1)}
+.sec-head{max-width:640px;margin-bottom:46px}
+.sec-head h2{font-size:clamp(32px,4.6vw,54px);margin:14px 0 12px}
+.sec-head p{color:var(--muted);font-size:16.5px;max-width:54ch}
+.fleet{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{position:relative;border-radius:var(--r-card);overflow:hidden;background:var(--surface);border:1px solid var(--line);transition:.35s var(--ease)}
+.card:hover{transform:translateY(-5px);border-color:rgba(245,166,35,.4);background:var(--surface-2)}
+.card-img{aspect-ratio:16/11;overflow:hidden;background:#0e1116}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:.5s var(--ease)}
+.card:hover .card-img img{transform:scale(1.05)}
+.card-body{padding:18px 20px 22px}
+.card-sku{font-family:var(--display);font-size:25px;letter-spacing:.5px}
+.card-cap{font-family:var(--mono);font-size:13px;color:var(--amber);margin-top:3px;letter-spacing:.4px}
+.card-row{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.card-row .k{font-size:12px;color:var(--muted-2);text-transform:uppercase;letter-spacing:1.2px}
+.card-row .v{font-family:var(--mono);font-size:14px;color:var(--steel)}
+.card-arrow{color:var(--amber);font-family:var(--display);font-size:14px;letter-spacing:1px}
+
+/* LOAD TABLE (mono, tabular, grouped, no border-per-row) */
+.lc-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.lc{border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--surface)}
+.lc table{width:100%;border-collapse:collapse;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.lc thead th{background:rgba(255,255,255,.03);text-align:left;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:500;padding:14px 22px}
+.lc td{padding:12px 22px;font-size:16px;color:var(--text)}
+.lc tbody tr:nth-child(odd){background:rgba(255,255,255,.012)}
+.lc td:last-child{color:var(--amber);text-align:right}
+
+/* SPECIMEN */
+.spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.sw{border-radius:var(--r-chip);height:74px;display:flex;align-items:flex-end;padding:10px;font-family:var(--mono);font-size:11.5px;color:#0A0B0D}
+.label{font-family:var(--mono);font-size:11.5px;color:var(--muted-2);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+
+@media(max-width:900px){.hero-inner,.lc-wrap{grid-template-columns:1fr}.fleet{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav"><div class="container nav-inner">
+  <div class="logo"><svg class="mark" viewBox="0 0 40 40" aria-label="Atlas Boom"><rect x=".75" y=".75" width="38.5" height="38.5" rx="10" fill="#14181f" stroke="rgba(245,166,35,.28)" stroke-width="1.5"/><path d="M11 29.5 V13 L30 20.5" fill="none" stroke="#F5A623" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 29.5 H28.5" stroke="#F5A623" stroke-width="3.4" stroke-linecap="round"/><path d="M30 20.5 V25.5" stroke="#F5A623" stroke-width="2.6" stroke-linecap="round"/></svg><span class="wm"><span>ATLAS<b>BOOM</b></span><small>Knuckle Boom Cranes</small></span></div>
+  <div class="nav-links"><a href="#">Fleet</a><a href="#">Services</a><a href="#">Specs</a><a href="#">Contact</a></div>
+  <div class="nav-cta"><a href="#" class="btn btn-amber">Request a quote</a></div>
+</div></nav>
+
+<section class="hero-scroll" id="hero">
+  <div class="hero-sticky">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-scrim"></div>
+    <div class="hero-copy" id="heroCopy">
+      <div class="hl hl-1">
+        <span class="eyebrow">Knuckle boom crane distributor</span>
+        <h1>Lift heavier.</h1>
+      </div>
+      <div class="hl hl-2">
+        <h1>Reach <span class="am">farther.</span></h1>
+      </div>
+      <div class="hero-foot">
+        <p class="lead">Thirteen hydraulic knuckle boom cranes, 11 to 132 US tons, delivered and serviced across the United States.</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-amber">Request a quote</a>
+          <a href="#" class="btn btn-ghost">Browse the fleet</a>
+        </div>
+        <div class="hero-stats">
+          <div class="s"><b class="mono">13</b><span>Crane models</span></div>
+          <div class="s"><b class="mono">132</b><span>US tons max</span></div>
+          <div class="s"><b class="mono">48</b><span>States served</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section"><div class="container">
+  <div class="sec-head"><span class="eyebrow">The fleet</span><h2>Thirteen models, one engineering standard</h2><p>From the compact AT-10 to the 132-ton AT-120, every crane ships with 360 degree continuous slewing and a published load chart.</p></div>
+  <div class="fleet">
+    <article class="card"><div class="card-img"><img src="assets/images/models/at-30-hero.jpg" alt="AT-30 crane"/></div><div class="card-body"><div class="card-sku">AT-30</div><div class="card-cap">33 US tons rated</div><div class="card-row"><span class="k">Max reach</span><span class="v">69.2 ft</span></div><div class="card-row" style="border:none;padding-top:10px"><span class="card-arrow">View specs</span><span class="v">5+2 boom</span></div></div></article>
+    <article class="card"><div class="card-img"><img src="assets/images/models/at-55-hero.jpg" alt="AT-55 crane"/></div><div class="card-body"><div class="card-sku">AT-55</div><div class="card-cap">61 US tons rated</div><div class="card-row"><span class="k">Max reach</span><span class="v">81.4 ft</span></div><div class="card-row" style="border:none;padding-top:10px"><span class="card-arrow">View specs</span><span class="v">6+2 boom</span></div></div></article>
+    <article class="card"><div class="card-img"><img src="assets/images/models/at-75-hero.jpg" alt="AT-75 crane"/></div><div class="card-body"><div class="card-sku">AT-75</div><div class="card-cap">83 US tons rated</div><div class="card-row"><span class="k">Max reach</span><span class="v">61.7 ft</span></div><div class="card-row" style="border:none;padding-top:10px"><span class="card-arrow">View specs</span><span class="v">7+2 boom</span></div></div></article>
+  </div>
+</div></section>
+
+<section class="section bg-soft"><div class="container">
+  <div class="lc-wrap">
+    <div class="sec-head" style="margin:0"><span class="eyebrow">Load chart</span><h2>AT-30 lifting capacity by reach</h2><p>Figures shown for the 5 hydraulic plus 2 manual configuration, US units. Rated capacity drops as the boom extends.</p></div>
+    <div class="lc"><table>
+      <thead><tr><th>Working reach</th><th>Max capacity</th></tr></thead>
+      <tbody>
+        <tr><td>16.1 ft</td><td>41,790 lb</td></tr>
+        <tr><td>22.1 ft</td><td>27,020 lb</td></tr>
+        <tr><td>35.9 ft</td><td>13,910 lb</td></tr>
+        <tr><td>51.5 ft</td><td>9,570 lb</td></tr>
+        <tr><td>69.2 ft</td><td>4,650 lb</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div></section>
+
+<section class="section"><div class="container">
+  <div class="sec-head"><span class="eyebrow">Design system</span><h2>Palette and type</h2></div>
+  <div class="label">Surfaces and accent</div>
+  <div class="spec" style="margin-bottom:30px">
+    <div class="sw" style="background:#0A0B0D;color:#9aa3b2;border:1px solid var(--line)">#0A0B0D bg</div>
+    <div class="sw" style="background:#13161c;color:#9aa3b2">#13161C surface</div>
+    <div class="sw" style="background:#191d25;color:#9aa3b2">#191D25 surface-2</div>
+    <div class="sw" style="background:#F5A623">#F5A623 amber</div>
+    <div class="sw" style="background:#aeb7c4">#AEB7C4 steel</div>
+  </div>
+  <div class="label">Type system</div>
+  <div style="display:grid;gap:14px">
+    <div><span class="dsp" style="font-size:40px">Saira Condensed 700</span> <span style="color:var(--muted-2);font-family:var(--mono);font-size:12px"> / display + headings</span></div>
+    <div style="font-family:var(--body);font-size:18px">Geist 400 / 500 - body copy, calm and modern. <span style="color:var(--muted)">Readable at long lengths.</span></div>
+    <div class="mono" style="font-size:18px;color:var(--steel)">Geist Mono 0123456789 - specs, load tables, tabular figures.</div>
+  </div>
+</div></section>
+
+</div>
+<script>
+(function(){
+  var N=73, SCRUB_END=0.72, REVEAL=0.16, frames=[], loaded=0, cur=-1;
+  var canvas=document.getElementById('heroCanvas'), ctx=canvas.getContext('2d');
+  var wrap=document.getElementById('hero'), copy=document.getElementById('heroCopy');
+  var hl1=copy.querySelector('.hl-1'), hl2=copy.querySelector('.hl-2'), foot=copy.querySelector('.hero-foot');
+  function rv(el,tp,s,d,ax,dist){var l=Math.min(Math.max((tp-s)/d,0),1);el.style.opacity=l;el.style.transform=(ax==='x'?'translateX(':'translateY(')+(dist*(1-l)).toFixed(1)+'px)';}
+  var dpr=Math.min(window.devicePixelRatio||1,2);
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function pad(n){return ('000'+n).slice(-4);}
+  for(var i=1;i<=N;i++){
+    var im=new Image();
+    im.onload=(function(){loaded++;if(loaded===1)draw(0);});
+    im.src='assets/images/frames/header/f-'+pad(i)+'.jpg';
+    frames[i-1]=im;
+  }
+  function draw(idx){
+    var img=frames[idx];
+    if(!img||!img.complete||!img.naturalWidth){
+      for(var k=idx;k>=0;k--){if(frames[k]&&frames[k].complete&&frames[k].naturalWidth){img=frames[k];break;}}
+      if(!img)return;
+    }
+    cur=idx;
+    var cw=canvas.width, ch=canvas.height, iw=img.naturalWidth, ih=img.naturalHeight;
+    var s=Math.max(cw/iw, ch/ih), w=iw*s, h=ih*s;
+    ctx.drawImage(img,(cw-w)/2,(ch-h)/2,w,h);
+  }
+  function resize(){
+    canvas.width=Math.round(innerWidth*dpr); canvas.height=Math.round(innerHeight*dpr);
+    canvas.style.width=innerWidth+'px'; canvas.style.height=innerHeight+'px';
+    draw(cur<0?0:cur);
+  }
+  if(reduce){
+    wrap.style.height='100dvh';
+    [hl1,hl2,foot].forEach(function(el){el.style.opacity=1;el.style.transform='none';});
+    resize(); draw(N-1);
+    addEventListener('resize',resize);
+    return;
+  }
+  function update(){
+    var total=wrap.offsetHeight-innerHeight;
+    var p=Math.min(Math.max(-wrap.getBoundingClientRect().top/total,0),1);
+    var idx=Math.round(Math.min(p/SCRUB_END,1)*(N-1));
+    if(idx!==cur)draw(idx);
+    var tp=Math.min(Math.max((p-SCRUB_END)/REVEAL,0),1);
+    rv(hl1,tp,0,0.5,'y',48);
+    rv(hl2,tp,0.22,0.6,'x',90);
+    rv(foot,tp,0.5,0.5,'y',34);
+  }
+  addEventListener('scroll',update,{passive:true});
+  addEventListener('resize',function(){resize();update();});
+  resize(); update();
+})();
+</script>
+</body>
+</html>

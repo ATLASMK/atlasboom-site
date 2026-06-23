@@ -102,7 +102,7 @@
       <div class="qform">
         <h3>Send a request</h3>
         <p class="sub">Quote, spec sheet, load chart, service question — start here. We use your message to assemble a reply, never to add you to a marketing list.</p>
-        <form id="contactForm">
+        <form id="contactForm" data-atlas-form data-subject="Atlas Boom request">
           <div class="field row">
             <div><label for="cf-name">Your name</label><input type="text" id="cf-name" name="name" required /></div>
             <div><label for="cf-company">Company</label><input type="text" id="cf-company" name="company" /></div>
@@ -211,28 +211,6 @@
 
 </div>
 <script src="../assets/js/shared.js"></script>
-<script>
-(function(){
-  var form = document.getElementById('contactForm'), success = document.getElementById('contactSuccess');
-  if(!form) return;
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(!form.checkValidity()){ form.reportValidity(); return; }
-    var subj = encodeURIComponent('Atlas Boom request: ' + form.interest.value + (form.model.value ? ' / ' + form.model.value : ''));
-    var body = encodeURIComponent(
-      'Name: ' + form.name.value + '\n' +
-      'Company: ' + (form.company.value || '(none)') + '\n' +
-      'Email: ' + form.email.value + '\n' +
-      'State: ' + (form.state.value || '(none)') + '\n' +
-      'Topic: ' + form.interest.value + '\n' +
-      'Model: ' + (form.model.value || 'Any / not sure') + '\n\n' +
-      'Message:\n' + form.message.value
-    );
-    window.location.href = 'mailto:info@atlasboom.com?subject=' + subj + '&body=' + body;
-    form.style.display = 'none';
-    success.classList.add('show');
-  });
-})();
-</script>
+<script src="../assets/js/forms.js"></script>
 </body>
 </html>

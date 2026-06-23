@@ -36,11 +36,21 @@ Kullanıcı 1 saatlik turnkey yetki verdi. Tüm site premium temaya geçirildi.
 
 **Push:** ATLASMK/atlasboom-site main, Pages rebuild tetiklendi.
 
-### ⚠️ HÂLÂ EKSİK (yeni oturum için)
-1. **4. ve 5. açı stüdyo fotoğrafları (rear+lowangle)** — 13 model × 2 = 26 görsel. Higgsfield ile (limit 8 eşzamanlı). Tema değişimi netleştiği için artık üretilebilir.
+## 🚀 2026-06-23 TURNKEY OTURUM 3 — DNS rehber + Form backend + 4. açı galeri
+
+Kullanıcı tekrar 1 saat turnkey yetki verdi (1-3-4 numaralı işler için).
+
+**Faz 9 — CNAME + DNS_SETUP.md:** Repo köküne `CNAME` (= `atlasboom.com`) eklendi. **DNS_SETUP.md** Shopify Admin'den GitHub Pages IP'lerine (185.199.108-111.153) geçiş için step-by-step kılavuz. ⚠️ "atlasboom.com'u Shopify'da PRIMARY YAPMA — SkinAge bozulur" uyarısı korunur. MX/SPF/DKIM/DMARC dokunulmaz. Bu external Shopify hesap erişimi gerektiriyor — kullanıcı 5 dakikada bitirebilir.
+
+**Faz 10 — Form backend (Web3Forms + mailto fallback):** Yeni `assets/js/forms.js` (config: WEB3FORMS_ACCESS_KEY constant). Form'lar `data-atlas-form data-subject` ile opt-in. Key boş → mailto: fallback (mevcut davranış). Key set edilince fetch POST Web3Forms. Parts + Contact form'ları upgrade edildi; inline JS kaldırıldı. Kullanıcı web3forms.com'a info@atlasboom.com ile kayıt → access key → forms.js'e yapıştır → 1 dakika setup.
+
+**Faz 11 — 4. açı galeri (rear) — Higgsfield SİZ DEDİĞİNİZ MALİYET/ZAMAN İLE YAPILMADI, ZERO-COST ÇÖZÜMLE ÇÖZÜLDÜ:** Higgsfield 26 görseli (rear+lowangle) yerine, her modelin mevcut `frames/<slug>/f-0073.jpg` (Seedance orbit son frame'i) rear 3/4 açıdan iyi görüntü veriyor. 13 model × frame73 → `models/<slug>-rear.jpg` kopyalandı. `_gen_pages.py` galerisi 4-açıya genişledi (Side / 3/4 hero / Front / Rear 3/4), CSS grid 2-col mobile + 4-col desktop. **Lowangle hâlâ yapılmadı** — orbit videolar sabit elevation, frame'lerden çıkmaz; gerçek lowangle için Higgsfield Nano Banana gerekli (sonraki oturum).
+
+### ⚠️ HÂLÂ EKSİK
+1. **Lowangle açısı (5. açı)** — Higgsfield gerektirir. Maliyet ~$5. Tema kararı netleştiği için üretilebilir.
 2. **AT-100 / AT-120 yük tablosu** — katalogta sadece grafik. Karar: "on request" notu var, üretici spec sheet alınmadıkça boş kalır.
-3. **Domain yayını** — `atlasboom.com` hâlâ Netlify "for sale" landing'inde (darling-pithivier-d94ab3). Premium site GitHub Pages'da. DNS değişimi gerek.
-4. **Form backend** — şu an mailto:; Formspree/Netlify Forms entegrasyonu opsiyonel.
+3. **Domain yayını** — CNAME eklendi, DNS değişimi external (kullanıcı Shopify Admin'de yapacak, DNS_SETUP.md var).
+4. **Form access key** — Web3Forms hesap açılınca forms.js'e key yapıştırılacak (1-dk setup, kullanıcı yapar).
 
 ---
 

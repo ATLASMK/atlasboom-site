@@ -114,7 +114,7 @@
       <div class="req-form">
         <h3>Request a part</h3>
         <p class="sub">No login, no portal. Email-only, response within one business day.</p>
-        <form id="partsForm">
+        <form id="partsForm" data-atlas-form data-subject="Atlas Boom parts request">
           <div class="field">
             <label for="pf-model">Crane model</label>
             <select id="pf-model" name="model" required>
@@ -202,24 +202,6 @@
 
 </div>
 <script src="../assets/js/shared.js"></script>
-<script>
-(function(){
-  var form = document.getElementById('partsForm'), success = document.getElementById('partsSuccess');
-  if(!form) return;
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(!form.checkValidity()){ form.reportValidity(); return; }
-    var model = encodeURIComponent(form.model.value);
-    var cat = encodeURIComponent(form.category.value);
-    var part = encodeURIComponent(form.part.value);
-    var notes = encodeURIComponent(form.notes.value || '(none)');
-    var body = 'Model: ' + decodeURIComponent(model) + '%0D%0ACategory: ' + decodeURIComponent(cat) + '%0D%0APart: ' + decodeURIComponent(part) + '%0D%0ANotes: ' + decodeURIComponent(notes) + '%0D%0AContact: ' + form.email.value;
-    var subject = encodeURIComponent('Parts request: ' + form.model.value + ' / ' + form.category.value);
-    window.location.href = 'mailto:info@atlasboom.com?subject=' + subject + '&body=' + body;
-    form.style.display = 'none';
-    success.classList.add('show');
-  });
-})();
-</script>
+<script src="../assets/js/forms.js"></script>
 </body>
 </html>

@@ -3,11 +3,9 @@
    When WEB3FORMS_ACCESS_KEY is empty, every form falls back to mailto: so
    the site still works the day a fresh user clones the repo. */
 (function(){
-  // To activate POST-by-fetch submissions:
-  //   1. Sign up free at https://web3forms.com/ with info@atlasboom.com
-  //   2. Paste the access key (free tier = 250 submissions/month).
-  //   3. No other change needed.
-  var WEB3FORMS_ACCESS_KEY = "";
+  // Web3Forms access key (info@atlasboom.com account, free tier 250/month).
+  // Leave empty to disable POST and use mailto: only.
+  var WEB3FORMS_ACCESS_KEY = "10567f87-c274-40da-af36-d72e1ada3910";
   var ENDPOINT = "https://api.web3forms.com/submit";
   var FALLBACK_EMAIL = "info@atlasboom.com";
 

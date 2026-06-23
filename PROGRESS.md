@@ -16,8 +16,35 @@
 - **Scroll-3D (her model):** Seedance 2.0 orbit video (1080p) → `ffmpeg fps=12 scale=1600 q3` → `assets/images/frames/<slug>/f-%04d.jpg` (73 frame) → generator'da `frames=73` → sayfada scroll scrubber. **13/13 çalışıyor.**
 - **ANA HERO (index.html):** sinematik sanayi gün batımı görseli (Higgsfield, hero-B=aa302a64) → dolly-in video → 73 frame `assets/images/frames/hero/` → `HERO_FRAMES=73` → scroll'da video ilerler + hero metni soluar. Poster: `assets/images/hero-industrial.jpg`.
 
-### 🔜 SIRADAKİ BÜYÜK İŞ: TEMA DEĞİŞİMİ (2026-06-23 kullanıcı kararı)
-Kullanıcı **temayı komple baştan değiştirmek** istiyor — ya sıfırdan "cool & premium" yeni tema, ya da kullanıcı bir hazır tema seçip gönderecek. Mevcut amber/endüstriyel (#0A0B0D + #F5A623) tema KORUNMAYABİLİR. **İçerik/veri hazır** (13 model, fotolar, scroll-3D, yük tabloları, SEO sayfaları) → tema değişince bunlar yeni kabuğa taşınacak. Yeni tema gelene kadar bekle, sonra plan yaz.
+### 🎨 PREMIUM TEMA REDESIGN — PİLOT BİTTİ (2026-06-23)
+Kullanıcı `Leonxlnx/taste-skill` GitHub repo'sunu attı ([taste-skill](https://github.com/Leonxlnx/taste-skill) — anti-slop frontend design skill kütüphanesi: brutalist/minimalist/soft/redesign/taste vb.). Mod = **redesign-overhaul** (yeni görsel dil, içerik/IA/SEO korunur). Yön = **koyu sinematik endüstriyel premium** (kullanıcı kararı, en düşük risk, mevcut koyu görsellerle uyumlu).
+
+**Pilot dosya:** `_preview-theme.html` (izole, izle/test et — onaylanınca index.html + iki generator'a yayılacak). Önizleme: port 4322 / `_preview-theme.html`.
+
+**Sistem:**
+- Fontlar: **Saira Condensed 500-900** (display) + **Geist 400-600** (body) + **Geist Mono 400-500** (specs, load chart, sayılar). Eski Barlow+Inter atıldı.
+- Renkler: `--bg #0A0B0D` / `--surface #13161c` / **`--amber #F5A623` (TEK aksan)** / `--steel #aeb7c4`. Sinematik ambient + ince grain (SVG noise overlay).
+- Radius: kart **12px** / buton **8px** / chip **6px** (tek scale).
+- Em-dash=0, eyebrow seyrek, dynamic boom config notu (`build_chart` artık `extra["boom"]`'dan alıyor).
+
+**Yeni hero (scroll-scrub video + iki bölgeli wow):**
+- Kaynak: `C:\Users\PC\CLAUDE\header.mp4` (1928x1076, 6sn, 24fps) → ffmpeg `fps=12,scale=1600,q4` ile **73 jpg kare** → `assets/images/frames/header/`.
+- Scroll yapısı: `.hero-scroll{height:300vh}` + sticky `.hero-sticky` + tam-ekran canvas. ⚠️ **`video.currentTime` KULLANMA** (takılır) — mevcut scroll-3D pipeline'ı ile aynı: canvas drawImage + rAF kapısı YOK (eval ortamında kilitleniyordu, direkt update fonksiyonu).
+- Akış (üzerinde 4 dial ayarı yapıldı): SCRUB_END=0.72 (video burada biter) → REVEAL=0.16 (sıralı reveal) → sonra %12 sabit kalış.
+- **Kompozisyon (kullanıcı çizim onaylı):** "LIFT HEAVIER." sol-üst Bölge1 (Y'den yükselir, gecikme 0), "REACH <span class=am>FARTHER.</span>" sağ-orta Bölge2 (X'den sağdan kayar, gecikme 0.22, mesafe 90px — boom yönünü pekiştirir), alt blok (lead+CTA+stats) sol-orta ok bölgesi (gecikme 0.5).
+- **Alt blok saydam** (vinç son karesini kapatmasın): koyu cam panel KALDIRILDI. Açık zeminde okunması için metin **koyu** (`#14171d`) + hafif beyaz halo (`text-shadow:0 1px 18px rgba(250,250,252,.85)`); mobil (zemin koyu) beyaza döner. Ghost button rengi `.hero-foot{--gc,--gb}` CSS değişkenleriyle çözüldü (`.btn-ghost{color:#fff}` base cascade tuhaflığı yüzünden).
+- Logo yeniden: 40px boom-mark SVG (mast + diagonal kol + kanca, amber, koyu tile) + 800 ağırlık ATLAS**BOOM** + altında mono `Knuckle Boom Cranes`.
+- Hero h1: clamp(46,7.2vw,116) **ağırlık 900**, line-height .82, letter-spacing -1.7, gölgeli. (Önceki 700/98px güçsüzdü.)
+
+**⚠️ ekran görüntüsü aracı bu ortamda timeout veriyor** — programatik doğrulama yaptım (canvas pixel sampling + getBoundingClientRect %'leri + opacity check). Tüm 3 reveal noktasında doğrulandı.
+
+### 🌐 GITHUB + PAGES + CLAUDE CHAT BRIEFING (2026-06-23)
+- **Repo:** https://github.com/ATLASMK/atlasboom-site (PUBLIC, hesap ATLASMK, gh CLI device-flow keyring'de).
+- **Pages canlı:** https://atlasmk.github.io/atlasboom-site/ (legacy index), https://atlasmk.github.io/atlasboom-site/_preview-theme.html (yeni hero), https://atlasmk.github.io/atlasboom-site/CLAUDE_BRIEF.md (Claude chat-design-code için brief).
+- **⚠️ `.nojekyll` ZORUNLU** — underscore'lu dosyalar (`_preview-theme.html`, `_gen_*.py`) yoksa 404. Eklendiğinde Pages otomatik re-deploy ETMEZ → `gh api -X POST repos/ATLASMK/atlasboom-site/pages/builds` ile manuel tetiklendi.
+- **CLAUDE_BRIEF.md:** repo kökünde, Claude chat session'larının saniyelerde projeyi kavraması için yazıldı (stack, layout, current status, yeni hero, em-dash yasağı/conventions, açık kararlar).
+- **/design-sync skill'i UYUMSUZ** — package.json/dist/React yok, bizim proje pure static. /design-sync component kütüphaneleri için. Bunun yerine: Claude chat'e Pages URL'i + brief verildi.
+- **İş akışı kuralı:** kullanıcı Claude chat'te `_preview-theme.html`'i düzenleyince → bana yapıştırır veya pushlar → ben dokunmadan önce dosyayı yeniden okurum (üzerine yazma riski). Local'de pushlanmamış commit varsa da sor.
 
 ### ✅ YÜK TABLOLARI BİTTİ (2026-06-23)
 **11/13 modelde** yük tablosu var: AT-13, AT-16 (önceki) + bu oturumda **AT-10, AT-20, AT-25-27, AT-30, AT-35-38, AT-45, AT-55, AT-65, AT-75**. Yöntem: yük tablosu sayfaları PDF'ten (`hsa baskı son (1).pdf`) **300 DPI** render (`_loadcharts_300dpi/`) → PIL ile band kırpıp oku → her sayfanın **en üst (standart) konfigi** → m×3.28084=ft, kg×2.20462=lb, lb nearest-5 → `_gen_pages.py` MODELS'e `extra=`+`chart=`. Konfigler değişken: AT-10..AT-45 çoğu **5+2**, AT-35-38=**6+2**, AT-55/65=**6+2** (HS165 ve HS195 katalogta AYNI L6+4 tabloyu paylaşıyor — gerçek üretici verisi), AT-75=**7+2**. `build_chart` notu artık `extra["boom"]`'dan dinamik. ⚠️ **AT-100 (HS300) ve AT-120 (HS360) katalogta sadece GRAFİK eğrisi** — tablo yok; uydurma rakam yazılmadı, `extra=None` (yük tablosu "request" notu kalıyor). İstenirse grafikten yaklaşık nokta okunabilir.

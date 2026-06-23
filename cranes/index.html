@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cranes — Atlas Boom Hydraulic Knuckle Boom Lineup</title>
+<meta name="description" content="The full Atlas Boom crane lineup. Thirteen hydraulic knuckle boom cranes from 11 to 132 US tons. Filter by boom configuration, browse load charts and request a quote." />
+<meta name="theme-color" content="#0A0B0D" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Atlas Boom Cranes — Thirteen Models, 11 to 132 US Tons" />
+<meta property="og:description" content="The full Atlas Boom hydraulic knuckle boom crane lineup with US-unit load charts." />
+<meta property="og:url" content="https://atlasboom.com/cranes/" />
+<meta property="og:image" content="https://atlasboom.com/assets/images/hero-industrial.jpg" />
+<link rel="canonical" href="https://atlasboom.com/cranes/" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0B0D'/%3E%3Cpath d='M9 24 V10 L23 16.5 M9 24 H22 M23 16.5 V20' stroke='%23F5A623' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/shared.css" />
+<style>
+/* page-specific: fleet grid, filter chips, capacity tool */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;align-items:center}
+.filters .lbl{font-family:var(--mono);font-size:12px;letter-spacing:1.6px;color:var(--muted-2);text-transform:uppercase;margin-right:6px}
+.chip{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.8px;font-size:13.5px;padding:9px 16px;border-radius:var(--r-chip);background:var(--surface);border:1px solid var(--line);color:var(--steel);cursor:pointer;transition:.25s}
+.chip:hover{border-color:rgba(245,166,35,.4);color:#fff}
+.chip.on{background:var(--amber);color:#0A0B0D;border-color:var(--amber)}
+.fleet{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{position:relative;border-radius:var(--r-card);overflow:hidden;background:var(--surface);border:1px solid var(--line);transition:.35s var(--ease);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-5px);border-color:rgba(245,166,35,.4);background:var(--surface-2)}
+.card.active{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber),0 18px 50px -10px rgba(245,166,35,.18)}
+.card.hidden{display:none}
+.card-img{aspect-ratio:16/11;overflow:hidden;background:#0e1116;position:relative}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:.5s var(--ease)}
+.card:hover .card-img img{transform:scale(1.05)}
+.card-badge{position:absolute;top:12px;left:12px;background:rgba(10,11,13,.78);color:var(--amber);font-family:var(--mono);font-size:11.5px;letter-spacing:1.4px;padding:6px 10px;border-radius:var(--r-chip);text-transform:uppercase;backdrop-filter:blur(8px);border:1px solid rgba(245,166,35,.25)}
+.card-body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column}
+.card-sku{font-family:var(--display);font-size:26px;letter-spacing:.5px;font-weight:800}
+.card-cap{font-family:var(--mono);font-size:13px;color:var(--steel);margin-top:4px;letter-spacing:.4px}
+.card-cap b{color:var(--amber);font-weight:500}
+.card-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.card-row .k{font-size:11.5px;color:var(--muted-2);text-transform:uppercase;letter-spacing:1.3px;font-family:var(--mono)}
+.card-arrow{color:var(--amber);font-family:var(--display);font-size:14px;letter-spacing:1px;display:inline-flex;align-items:center;gap:6px;transition:.25s}
+.card:hover .card-arrow{gap:10px}
+.capacity-tool{margin-top:48px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:38px 40px}
+.ct-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:32px;flex-wrap:wrap}
+.ct-head h3{font-size:26px;letter-spacing:.4px;margin-bottom:6px}
+.ct-head p{color:var(--muted);font-size:14.5px;max-width:46ch}
+.ct-value{font-family:var(--display);font-weight:800;font-size:54px;color:var(--amber);line-height:1;letter-spacing:-1px}
+.ct-value small{font-family:var(--mono);font-weight:400;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;display:block;margin-top:6px}
+.range-wrap{position:relative}
+input[type=range]{width:100%;-webkit-appearance:none;background:transparent;height:34px;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:5px;background:linear-gradient(90deg,var(--amber) 0%,var(--amber) var(--fill,0%),rgba(255,255,255,.1) var(--fill,0%));border-radius:3px}
+input[type=range]::-moz-range-track{height:5px;background:rgba(255,255,255,.1);border-radius:3px}
+input[type=range]::-moz-range-progress{height:5px;background:var(--amber);border-radius:3px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:#fff;border:3px solid var(--amber);border-radius:50%;margin-top:-9px;box-shadow:0 4px 14px rgba(245,166,35,.4)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;background:#fff;border:3px solid var(--amber);border-radius:50%;box-shadow:0 4px 14px rgba(245,166,35,.4)}
+.range-ticks{display:flex;justify-content:space-between;margin-top:12px;font-family:var(--mono);font-size:11.5px;color:var(--muted-2);letter-spacing:1.2px}
+.range-ticks span{cursor:pointer;padding:4px 8px;border-radius:4px;transition:.2s}
+.range-ticks span:hover{color:var(--steel)}
+.range-ticks span.on{color:var(--amber);background:rgba(245,166,35,.08)}
+@media(max-width:1000px){.fleet{grid-template-columns:repeat(2,1fr)}.capacity-tool{padding:28px 24px}}
+@media(max-width:600px){.fleet{grid-template-columns:1fr}.ct-value{font-size:42px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav" id="nav"><div class="container nav-inner">
+  <a href="../" class="logo">
+    <svg class="mark" viewBox="0 0 40 40" aria-label="Atlas Boom"><rect x=".75" y=".75" width="38.5" height="38.5" rx="10" fill="#14181f" stroke="rgba(245,166,35,.28)" stroke-width="1.5"/><path d="M11 29.5 V13 L30 20.5" fill="none" stroke="#F5A623" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 29.5 H28.5" stroke="#F5A623" stroke-width="3.4" stroke-linecap="round"/><path d="M30 20.5 V25.5" stroke="#F5A623" stroke-width="2.6" stroke-linecap="round"/></svg>
+    <span class="wm"><span>ATLAS<b>BOOM</b></span><small>Knuckle Boom Cranes</small></span>
+  </a>
+  <div class="nav-links">
+    <a href="../cranes/" class="active">Cranes</a>
+    <a href="../parts/">Parts</a>
+    <a href="../specs/">Specs</a>
+    <a href="../contact/">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a href="../contact/" class="btn btn-amber btn-sm">Request a quote</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../cranes/">Cranes</a>
+  <a href="../parts/">Parts</a>
+  <a href="../specs/">Specs</a>
+  <a href="../contact/">Contact</a>
+  <a href="../contact/" class="btn btn-amber">Request a quote</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div>
+        <div class="breadcrumb"><a href="../">Atlas Boom</a><span>Cranes</span></div>
+        <span class="eyebrow">The fleet</span>
+        <h1>Thirteen models.<br/><span class="am">One standard.</span></h1>
+      </div>
+      <p class="lede">From the 11-ton AT-10 to the 132-ton AT-120, every Atlas Boom crane ships with continuous 360 degree slewing, 3,626 psi hydraulics and a published US-unit load chart.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="filters">
+      <span class="lbl">Boom config:</span>
+      <button class="chip on" data-filter="all">All 13</button>
+      <button class="chip" data-filter="5+2">5+2 (compact)</button>
+      <button class="chip" data-filter="6+2">6+2 (mid)</button>
+      <button class="chip" data-filter="7+2">7+2 (long-reach)</button>
+      <button class="chip" data-filter="heavy">Heavy-class</button>
+    </div>
+
+    <div class="fleet" id="fleetGrid">
+      <a class="card" data-ton="10" data-boom="5+2" href="../models/at-10.html"><div class="card-img"><span class="card-badge">11 US tons</span><img src="../assets/images/models/at-10-hero.jpg" alt="AT-10 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-10</div><div class="card-cap">Rated <b>22,050 lb</b> / 5+2 boom</div><div class="card-row"><span class="k">Max reach 46.6 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="13" data-boom="5+2" href="../models/at-13.html"><div class="card-img"><span class="card-badge">14 US tons</span><img src="../assets/images/models/at-13-hero.jpg" alt="AT-13 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-13</div><div class="card-cap">Rated <b>28,660 lb</b> / 5+2 boom</div><div class="card-row"><span class="k">Max reach 52.5 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="16" data-boom="5+2" href="../models/at-16.html"><div class="card-img"><span class="card-badge">18 US tons</span><img src="../assets/images/models/at-16-hero.jpg" alt="AT-16 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-16</div><div class="card-cap">Rated <b>35,270 lb</b> / 5+2 boom</div><div class="card-row"><span class="k">Max reach 56.4 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="20" data-boom="5+2" href="../models/at-20.html"><div class="card-img"><span class="card-badge">22 US tons</span><img src="../assets/images/models/at-20-hero.jpg" alt="AT-20 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-20</div><div class="card-cap">Rated <b>44,090 lb</b> / 5+2 boom</div><div class="card-row"><span class="k">Max reach 62.3 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="26" data-boom="5+2" href="../models/at-25-27.html"><div class="card-img"><span class="card-badge">28-30 US tons</span><img src="../assets/images/models/at-25-27-hero.jpg" alt="AT-25-27 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-25-27</div><div class="card-cap">Rated <b>55,100-59,500 lb</b> / 5+2 boom</div><div class="card-row"><span class="k">Max reach 62.3 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="30" data-boom="5+2" href="../models/at-30.html"><div class="card-img"><span class="card-badge">33 US tons</span><img src="../assets/images/models/at-30-hero.jpg" alt="AT-30 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-30</div><div class="card-cap">Rated <b>66,140 lb</b> / 5+2 boom</div><div class="card-row"><span class="k">Max reach 69.2 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="36" data-boom="6+2" href="../models/at-35-38.html"><div class="card-img"><span class="card-badge">39-42 US tons</span><img src="../assets/images/models/at-35-38-hero.jpg" alt="AT-35-38 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-35-38</div><div class="card-cap">Rated <b>77,160-83,780 lb</b> / 6+2 boom</div><div class="card-row"><span class="k">Max reach 73.2 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="45" data-boom="6+2" href="../models/at-45.html"><div class="card-img"><span class="card-badge">50 US tons</span><img src="../assets/images/models/at-45-hero.jpg" alt="AT-45 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-45</div><div class="card-cap">Rated <b>99,210 lb</b> / 6+2 boom</div><div class="card-row"><span class="k">Max reach 73.2 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="55" data-boom="6+2" href="../models/at-55.html"><div class="card-img"><span class="card-badge">61 US tons</span><img src="../assets/images/models/at-55-hero.jpg" alt="AT-55 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-55</div><div class="card-cap">Rated <b>121,250 lb</b> / 6+2 boom</div><div class="card-row"><span class="k">Max reach 81.4 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="65" data-boom="6+2" href="../models/at-65.html"><div class="card-img"><span class="card-badge">72 US tons</span><img src="../assets/images/models/at-65-hero.jpg" alt="AT-65 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-65</div><div class="card-cap">Rated <b>143,300 lb</b> / 6+2 boom</div><div class="card-row"><span class="k">Max reach 81.4 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="75" data-boom="7+2" href="../models/at-75.html"><div class="card-img"><span class="card-badge">83 US tons</span><img src="../assets/images/models/at-75-hero.jpg" alt="AT-75 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-75</div><div class="card-cap">Rated <b>165,350 lb</b> / 7+2 boom</div><div class="card-row"><span class="k">Max reach 61.7 ft</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="100" data-boom="heavy" href="../models/at-100.html"><div class="card-img"><span class="card-badge">110 US tons</span><img src="../assets/images/models/at-100-hero.jpg" alt="AT-100 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-100</div><div class="card-cap">Rated <b>220,460 lb</b> / heavy-class</div><div class="card-row"><span class="k">Load chart on request</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+      <a class="card" data-ton="120" data-boom="heavy" href="../models/at-120.html"><div class="card-img"><span class="card-badge">132 US tons</span><img src="../assets/images/models/at-120-hero.jpg" alt="AT-120 hydraulic knuckle boom crane" loading="lazy"/></div><div class="card-body"><div class="card-sku">AT-120</div><div class="card-cap">Rated <b>264,550 lb</b> / heavy-class</div><div class="card-row"><span class="k">Load chart on request</span><span class="card-arrow">View specs &rarr;</span></div></div></a>
+    </div>
+
+    <div class="capacity-tool">
+      <div class="ct-head">
+        <div>
+          <h3>Match your load class</h3>
+          <p>Slide to your job's lift requirement and we will highlight the matching model.</p>
+        </div>
+        <div class="ct-value"><span id="ctVal">11</span><small>US tons</small></div>
+      </div>
+      <div class="range-wrap">
+        <input type="range" id="capRange" min="0" max="12" step="1" value="0" aria-label="Crane capacity in US tons" />
+        <div class="range-ticks" id="ticks">
+          <span data-i="0" class="on">11</span><span data-i="3">22</span><span data-i="5">33</span><span data-i="7">50</span><span data-i="10">83</span><span data-i="12">132</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container cta-strip-inner">
+    <div>
+      <h2>Need a load chart we have not published?</h2>
+      <p>The AT-100 and AT-120 load charts are issued on request. Send us your lift and reach and we will return the figures within 24 hours.</p>
+    </div>
+    <a href="../contact/" class="btn btn-amber">Request a quote</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../" class="logo">
+          <svg class="mark" viewBox="0 0 40 40"><rect x=".75" y=".75" width="38.5" height="38.5" rx="10" fill="#14181f" stroke="rgba(245,166,35,.28)" stroke-width="1.5"/><path d="M11 29.5 V13 L30 20.5" fill="none" stroke="#F5A623" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 29.5 H28.5" stroke="#F5A623" stroke-width="3.4" stroke-linecap="round"/><path d="M30 20.5 V25.5" stroke="#F5A623" stroke-width="2.6" stroke-linecap="round"/></svg>
+          <span class="wm"><span>ATLAS<b>BOOM</b></span><small>Knuckle Boom Cranes</small></span>
+        </a>
+        <p>Hydraulic knuckle boom cranes built to American load standards. A brand of Atlas Chicago LLC.</p>
+      </div>
+      <div class="footer-col"><h4>Cranes</h4><a href="../cranes/">All models</a><a href="../specs/">Compare specs</a><a href="../parts/">Parts</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="../contact/">Contact</a><a href="../contact/service-areas/">Service areas</a><a href="../contact/">Request a quote</a></div>
+      <div class="footer-col"><h4>Reach us</h4><a href="mailto:info@atlasboom.com">info@atlasboom.com</a><a href="../contact/">Chicago, IL</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Atlas Chicago LLC. All rights reserved.</span>
+      <span>Atlas Boom &middot; Hydraulic knuckle boom cranes</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script src="../assets/js/shared.js"></script>
+<script>
+(function(){
+  var tons = [10,13,16,20,26,30,36,45,55,65,75,100,120];
+  var labels = ['11','14','18','22','28-30','33','39-42','50','61','72','83','110','132'];
+  var MAXI = tons.length - 1;
+  var range = document.getElementById('capRange'),
+      ctVal = document.getElementById('ctVal'),
+      cards = document.querySelectorAll('.card[data-ton]'),
+      ticks = document.querySelectorAll('#ticks span'),
+      chips = document.querySelectorAll('.chip[data-filter]');
+  function applyRange(i){
+    i = parseInt(i,10);
+    ctVal.textContent = labels[i];
+    range.style.setProperty('--fill',(i/MAXI*100)+'%');
+    cards.forEach(function(c){ c.classList.toggle('active', parseInt(c.getAttribute('data-ton'),10) === tons[i]); });
+    ticks.forEach(function(t){ t.classList.toggle('on', parseInt(t.getAttribute('data-i'),10) === i); });
+  }
+  range.addEventListener('input', function(){ applyRange(range.value); });
+  ticks.forEach(function(t){ t.addEventListener('click', function(){ range.value = t.getAttribute('data-i'); applyRange(range.value); }); });
+  applyRange(0);
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('on'); });
+      chip.classList.add('on');
+      var f = chip.getAttribute('data-filter');
+      cards.forEach(function(c){
+        c.classList.toggle('hidden', f !== 'all' && c.getAttribute('data-boom') !== f);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

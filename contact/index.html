@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Atlas Boom &middot; Request a Quote</title>
+<meta name="description" content="Reach Atlas Boom by email at info@atlasboom.com. Quotes, spec sheets and load charts returned within one business day. Service areas across the US Midwest and Northeast." />
+<meta name="theme-color" content="#0A0B0D" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Contact Atlas Boom" />
+<meta property="og:description" content="Email info@atlasboom.com for quotes, parts and service. Replies within one business day." />
+<meta property="og:url" content="https://atlasboom.com/contact/" />
+<link rel="canonical" href="https://atlasboom.com/contact/" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0B0D'/%3E%3Cpath d='M9 24 V10 L23 16.5 M9 24 H22 M23 16.5 V20' stroke='%23F5A623' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/shared.css" />
+<style>
+.contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:start}
+.qform{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:40px 42px}
+.qform h3{font-size:26px;letter-spacing:.4px;margin-bottom:6px}
+.qform .sub{color:var(--muted);font-size:15px;margin-bottom:28px}
+.field{margin-bottom:18px}
+.field.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field.row > div{margin:0}
+.field label{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-2);margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;padding:13px 16px;background:var(--bg-1);border:1px solid var(--line-2);border-radius:var(--r-btn);color:var(--text);font-family:var(--body);font-size:15px;transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--amber);background:#0e1116}
+.field textarea{resize:vertical;min-height:120px}
+.success{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.32);border-radius:var(--r-card);padding:32px;display:none;text-align:center}
+.success.show{display:block}
+.success h4{color:var(--amber);font-size:22px;margin-bottom:8px}
+.success p{color:var(--steel);font-size:15px}
+
+.side-info{display:flex;flex-direction:column;gap:24px}
+.info-card{padding:28px 30px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card)}
+.info-card .eyebrow{margin-bottom:14px}
+.info-card h3{font-size:22px;letter-spacing:.4px;margin-bottom:10px}
+.info-card p{color:var(--muted);font-size:14.5px;line-height:1.55;margin-bottom:14px}
+.info-card a.big{display:block;color:var(--amber);font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.3px;margin-top:14px;transition:.2s}
+.info-card a.big:hover{color:var(--amber-2)}
+.info-card a.btn-ghost{display:inline-flex;margin-top:8px}
+.info-card .rows{margin-top:6px}
+.info-card .rows .r{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--steel)}
+.info-card .rows .r:last-child{border-bottom:none}
+.info-card .rows .k{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-2);min-width:82px}
+
+@media(max-width:1000px){
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .qform{padding:30px 26px}
+  .field.row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav" id="nav"><div class="container nav-inner">
+  <a href="../" class="logo">
+    <svg class="mark" viewBox="0 0 40 40" aria-label="Atlas Boom"><rect x=".75" y=".75" width="38.5" height="38.5" rx="10" fill="#14181f" stroke="rgba(245,166,35,.28)" stroke-width="1.5"/><path d="M11 29.5 V13 L30 20.5" fill="none" stroke="#F5A623" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 29.5 H28.5" stroke="#F5A623" stroke-width="3.4" stroke-linecap="round"/><path d="M30 20.5 V25.5" stroke="#F5A623" stroke-width="2.6" stroke-linecap="round"/></svg>
+    <span class="wm"><span>ATLAS<b>BOOM</b></span><small>Knuckle Boom Cranes</small></span>
+  </a>
+  <div class="nav-links">
+    <a href="../cranes/">Cranes</a>
+    <a href="../parts/">Parts</a>
+    <a href="../specs/">Specs</a>
+    <a href="../contact/" class="active">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a href="mailto:info@atlasboom.com" class="btn btn-amber btn-sm">Email us</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../cranes/">Cranes</a>
+  <a href="../parts/">Parts</a>
+  <a href="../specs/">Specs</a>
+  <a href="../contact/">Contact</a>
+  <a href="mailto:info@atlasboom.com" class="btn btn-amber">Email us</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div>
+        <div class="breadcrumb"><a href="../">Atlas Boom</a><span>Contact</span></div>
+        <span class="eyebrow">Reach us</span>
+        <h1>One inbox.<br/><span class="am">One business day.</span></h1>
+      </div>
+      <p class="lede">Atlas Boom runs on email. Send a quote request, a parts inquiry or a service question and we will reply within one business day. No phone trees, no portals.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="qform">
+        <h3>Send a request</h3>
+        <p class="sub">Quote, spec sheet, load chart, service question — start here. We use your message to assemble a reply, never to add you to a marketing list.</p>
+        <form id="contactForm">
+          <div class="field row">
+            <div><label for="cf-name">Your name</label><input type="text" id="cf-name" name="name" required /></div>
+            <div><label for="cf-company">Company</label><input type="text" id="cf-company" name="company" /></div>
+          </div>
+          <div class="field row">
+            <div><label for="cf-email">Email</label><input type="email" id="cf-email" name="email" required placeholder="you@company.com" /></div>
+            <div><label for="cf-state">State</label><input type="text" id="cf-state" name="state" placeholder="IL, IN, MI..." /></div>
+          </div>
+          <div class="field">
+            <label for="cf-interest">What do you need?</label>
+            <select id="cf-interest" name="interest" required>
+              <option value="">Pick a topic</option>
+              <option>Crane purchase / quote</option>
+              <option>Spec sheet or load chart</option>
+              <option>Replacement parts</option>
+              <option>Crane rental</option>
+              <option>Concrete pumping</option>
+              <option>Heavy haul / lowboy transport</option>
+              <option>Service area question</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-model">Model of interest (optional)</label>
+            <select id="cf-model" name="model">
+              <option value="">Any model / not sure</option>
+              <option>AT-10</option><option>AT-13</option><option>AT-16</option><option>AT-20</option>
+              <option>AT-25-27</option><option>AT-30</option><option>AT-35-38</option><option>AT-45</option>
+              <option>AT-55</option><option>AT-65</option><option>AT-75</option><option>AT-100</option><option>AT-120</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-msg">Your message</label>
+            <textarea id="cf-msg" name="message" placeholder="Tell us about the lift, the job site or what you need to know..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-amber" style="width:100%">Send to info@atlasboom.com</button>
+        </form>
+        <div class="success" id="contactSuccess">
+          <h4>Request received.</h4>
+          <p>We will reply to your email within one business day.</p>
+        </div>
+      </div>
+
+      <div class="side-info">
+        <div class="info-card">
+          <span class="eyebrow">Email</span>
+          <h3>Talk to us directly.</h3>
+          <p>One inbox handles quotes, parts and service. Replies arrive within one business day from a human, not an autoresponder.</p>
+          <a class="big" href="mailto:info@atlasboom.com">info@atlasboom.com</a>
+        </div>
+
+        <div class="info-card">
+          <span class="eyebrow">Service areas</span>
+          <h3>Regional services across six states.</h3>
+          <p>Crane rental, concrete pumping and heavy haul are provided directly in IL, IN, MI, WI, OH and PA. See the full service area index for the city-level pages.</p>
+          <a href="service-areas/" class="btn btn-ghost btn-sm">View service areas &rarr;</a>
+        </div>
+
+        <div class="info-card">
+          <span class="eyebrow">Company</span>
+          <h3>Atlas Chicago LLC.</h3>
+          <div class="rows">
+            <div class="r"><span class="k">Brand</span><span>Atlas Boom &middot; Hydraulic knuckle boom cranes</span></div>
+            <div class="r"><span class="k">Operator</span><span>Atlas Chicago LLC</span></div>
+            <div class="r"><span class="k">Based</span><span>Chicago, Illinois</span></div>
+            <div class="r"><span class="k">Coverage</span><span>Crane sales: 48 contiguous states &middot; Services: IL, IN, MI, WI, OH, PA</span></div>
+            <div class="r"><span class="k">Hours</span><span>Mon-Fri, 8am-6pm Central</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container cta-strip-inner">
+    <div>
+      <h2>Faster on email?</h2>
+      <p>Skip the form. Open your mail client straight to <a href="mailto:info@atlasboom.com" style="color:var(--amber)">info@atlasboom.com</a> and tell us what you need.</p>
+    </div>
+    <a href="mailto:info@atlasboom.com" class="btn btn-amber">Open email</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../" class="logo">
+          <svg class="mark" viewBox="0 0 40 40"><rect x=".75" y=".75" width="38.5" height="38.5" rx="10" fill="#14181f" stroke="rgba(245,166,35,.28)" stroke-width="1.5"/><path d="M11 29.5 V13 L30 20.5" fill="none" stroke="#F5A623" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 29.5 H28.5" stroke="#F5A623" stroke-width="3.4" stroke-linecap="round"/><path d="M30 20.5 V25.5" stroke="#F5A623" stroke-width="2.6" stroke-linecap="round"/></svg>
+          <span class="wm"><span>ATLAS<b>BOOM</b></span><small>Knuckle Boom Cranes</small></span>
+        </a>
+        <p>Hydraulic knuckle boom cranes built to American load standards. A brand of Atlas Chicago LLC.</p>
+      </div>
+      <div class="footer-col"><h4>Cranes</h4><a href="../cranes/">All models</a><a href="../specs/">Compare specs</a><a href="../parts/">Parts</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="../contact/">Contact</a><a href="service-areas/">Service areas</a><a href="../contact/">Request a quote</a></div>
+      <div class="footer-col"><h4>Reach us</h4><a href="mailto:info@atlasboom.com">info@atlasboom.com</a><a href="../contact/">Chicago, IL</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Atlas Chicago LLC. All rights reserved.</span>
+      <span>Atlas Boom &middot; Hydraulic knuckle boom cranes</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script src="../assets/js/shared.js"></script>
+<script>
+(function(){
+  var form = document.getElementById('contactForm'), success = document.getElementById('contactSuccess');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    var subj = encodeURIComponent('Atlas Boom request: ' + form.interest.value + (form.model.value ? ' / ' + form.model.value : ''));
+    var body = encodeURIComponent(
+      'Name: ' + form.name.value + '\n' +
+      'Company: ' + (form.company.value || '(none)') + '\n' +
+      'Email: ' + form.email.value + '\n' +
+      'State: ' + (form.state.value || '(none)') + '\n' +
+      'Topic: ' + form.interest.value + '\n' +
+      'Model: ' + (form.model.value || 'Any / not sure') + '\n\n' +
+      'Message:\n' + form.message.value
+    );
+    window.location.href = 'mailto:info@atlasboom.com?subject=' + subj + '&body=' + body;
+    form.style.display = 'none';
+    success.classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>

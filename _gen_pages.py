@@ -60,8 +60,8 @@ MODELS = [
          chart=[("17.7 ft","87,965 lb"),("22.9 ft","66,580 lb"),("28.5 ft","54,785 lb"),
                 ("34.4 ft","42,660 lb"),("40.6 ft","35,605 lb"),("47.2 ft","30,095 lb"),
                 ("53.7 ft","25,840 lb"),("61.7 ft","20,170 lb")]),
-    dict(slug="at-100", sku="AT-100", badge="110 US tons", cap="220,460 lb", frames=73, extra=None, chart=None),
-    dict(slug="at-120", sku="AT-120", badge="132 US tons", cap="264,550 lb", frames=73, extra=None, chart=None),
+    dict(slug="at-100", sku="AT-100", badge="110 US tons", cap="220,460 lb", frames=73, extra=None, chart=None, loadchart_img="at-100-loadchart.jpg"),
+    dict(slug="at-120", sku="AT-120", badge="132 US tons", cap="264,550 lb", frames=73, extra=None, chart=None, loadchart_img="at-120-loadchart.jpg"),
 ]
 
 def spec_card(k, v):
@@ -87,6 +87,15 @@ def build_specs(m):
     return cards, note
 
 def build_chart(m):
+    if m.get("loadchart_img"):
+        img = m["loadchart_img"]
+        return ('<section class="section bg-soft">\n  <div class="container">\n'
+                '    <div class="sec-head" style="margin-bottom:30px"><span class="eyebrow">Load chart</span>\n'
+                '      <h2>%s lifting capacity diagram</h2>\n'
+                '      <p>Heavy-class lifting curve, 8 hydraulic plus 5 manual sections. Read radius (m) on the horizontal axis against lift height (m) on the vertical. For a US-unit printable chart, <a href="../contact/" style="color:var(--amber)">email info@atlasboom.com</a>.</p>\n'
+                '    </div>\n'
+                '    <div class="chart-img-wrap"><img src="../assets/images/charts/%s" alt="%s lifting capacity diagram" loading="lazy" /></div>\n'
+                '  </div>\n</section>\n' % (m["sku"], img, m["sku"]))
     if not m["chart"]:
         return ""
     rows = "".join('<tr><td>%s</td><td>%s</td></tr>' % (r, c) for r, c in m["chart"])
@@ -158,8 +167,8 @@ TPL = r"""<!DOCTYPE html>
 .scroll-hint svg{width:18px;height:18px;animation:bob 1.8s infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
-@media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr)}}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
+@media(min-width:900px){.gallery{grid-template-columns:repeat(5,1fr);gap:16px}}
 .gallery figure{border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--surface);cursor:pointer;transition:.35s var(--ease)}
 .gallery figure:hover{transform:translateY(-5px);border-color:rgba(245,166,35,.4);background:var(--surface-2)}
 .gallery img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:.5s var(--ease)}
@@ -175,6 +184,8 @@ TPL = r"""<!DOCTYPE html>
 .note{color:var(--muted);font-size:15px;margin-top:26px;max-width:62ch}
 
 .chart-wrap{border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--surface)}
+.chart-img-wrap{border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:#f5f6f8;padding:24px}
+.chart-img-wrap img{width:100%;height:auto;display:block;border-radius:6px}
 .chart{width:100%;border-collapse:collapse;font-family:var(--mono);font-variant-numeric:tabular-nums}
 .chart thead th{background:rgba(255,255,255,.03);text-align:left;font-family:var(--display);text-transform:uppercase;letter-spacing:1.5px;font-size:12px;color:var(--muted);padding:16px 22px;font-weight:700;border-bottom:1px solid var(--line)}
 .chart td{padding:14px 22px;font-size:15.5px;color:var(--text);border-bottom:1px solid rgba(255,255,255,.04)}
@@ -247,6 +258,7 @@ TPL = r"""<!DOCTYPE html>
       <figure data-full="../assets/images/models/{{SLUG}}-hero.jpg" data-cap="3/4 hero"><img src="../assets/images/models/{{SLUG}}-hero.jpg" alt="{{SKU}} hero view" loading="lazy" /><figcaption>3/4 hero</figcaption></figure>
       <figure data-full="../assets/images/models/{{SLUG}}-front.jpg" data-cap="Front"><img src="../assets/images/models/{{SLUG}}-front.jpg" alt="{{SKU}} front view" loading="lazy" /><figcaption>Front</figcaption></figure>
       <figure data-full="../assets/images/models/{{SLUG}}-rear.jpg" data-cap="Rear 3/4"><img src="../assets/images/models/{{SLUG}}-rear.jpg" alt="{{SKU}} rear view" loading="lazy" /><figcaption>Rear 3/4</figcaption></figure>
+      <figure data-full="../assets/images/models/{{SLUG}}-lowangle.jpg" data-cap="Low angle"><img src="../assets/images/models/{{SLUG}}-lowangle.jpg" alt="{{SKU}} low-angle dramatic view" loading="lazy" /><figcaption>Low angle</figcaption></figure>
     </div>
   </div>
 </section>

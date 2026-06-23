@@ -46,11 +46,14 @@ Kullanıcı tekrar 1 saat turnkey yetki verdi (1-3-4 numaralı işler için).
 
 **Faz 11 — 4. açı galeri (rear) — Higgsfield SİZ DEDİĞİNİZ MALİYET/ZAMAN İLE YAPILMADI, ZERO-COST ÇÖZÜMLE ÇÖZÜLDÜ:** Higgsfield 26 görseli (rear+lowangle) yerine, her modelin mevcut `frames/<slug>/f-0073.jpg` (Seedance orbit son frame'i) rear 3/4 açıdan iyi görüntü veriyor. 13 model × frame73 → `models/<slug>-rear.jpg` kopyalandı. `_gen_pages.py` galerisi 4-açıya genişledi (Side / 3/4 hero / Front / Rear 3/4), CSS grid 2-col mobile + 4-col desktop. **Lowangle hâlâ yapılmadı** — orbit videolar sabit elevation, frame'lerden çıkmaz; gerçek lowangle için Higgsfield Nano Banana gerekli (sonraki oturum).
 
-### ⚠️ HÂLÂ EKSİK
-1. **Lowangle açısı (5. açı)** — Higgsfield gerektirir. Maliyet ~$5. Tema kararı netleştiği için üretilebilir.
-2. **AT-100 / AT-120 yük tablosu** — katalogta sadece grafik. Karar: "on request" notu var, üretici spec sheet alınmadıkça boş kalır.
-3. **Domain yayını** — CNAME eklendi, DNS değişimi external (kullanıcı Shopify Admin'de yapacak, DNS_SETUP.md var).
-4. **Form access key** — Web3Forms hesap açılınca forms.js'e key yapıştırılacak (1-dk setup, kullanıcı yapar).
+## 🚀 2026-06-23 TURNKEY OTURUM 4 — 5. açı + AT-100/120 yük grafiği
+
+**Faz 12 — Lowangle (5. açı):** Higgsfield Nano Banana Pro ile 13 model × 1 lowangle = 13 görsel üretildi (~26 kredi). Pipeline: `media_upload` batch (13 hero JPG) → `urllib` PUT 13 paralel (`_lowangle_upload.py`) → `media_confirm` batch → `generate_image` 13 paralel dramatic-low-angle prompt + reference image → `show_generations` ile job ID/URL eşleştir → `_lowangle_download.py` paralel download + ffmpeg scale=1600 q4 jpg (~100-200 KB her biri). Galeri 5-açıya genişledi (Side / 3/4 hero / Front / Rear 3/4 / Low angle), CSS 2-col mobile / 5-col desktop.
+
+**Faz 13 — AT-100/120 yük grafiği:** Katalogtaki K8+K5 lifting capacity diagramları `_loadchart_crop.py` (PIL) ile crop edildi (sadece sağ-alt chart, sol vinç fotoğrafı + HSA logo + Türkçe başlık çubuğu kesildi) → JPG 1280px ~110 KB. `_gen_pages.py` build_chart()'a `loadchart_img` desteği eklendi: MODELS dict'inde `loadchart_img="<slug>-loadchart.jpg"` varsa diagram göster + "For US-unit printable chart email info@atlasboom.com" notu. AT-100/AT-120 sayfalarında artık katalog diagram'ı gömülü.
+
+### ⚠️ HÂLÂ EKSİK (sadece external)
+1. **Domain yayını** — CNAME eklendi, DNS değişimi external (kullanıcı Shopify Admin'de yapacak, DNS_SETUP.md var).
 
 ---
 

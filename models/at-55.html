@@ -37,8 +37,8 @@
 .scroll-hint svg{width:18px;height:18px;animation:bob 1.8s infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
-@media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr)}}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
+@media(min-width:900px){.gallery{grid-template-columns:repeat(5,1fr);gap:16px}}
 .gallery figure{border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--surface);cursor:pointer;transition:.35s var(--ease)}
 .gallery figure:hover{transform:translateY(-5px);border-color:rgba(245,166,35,.4);background:var(--surface-2)}
 .gallery img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:.5s var(--ease)}
@@ -54,6 +54,8 @@
 .note{color:var(--muted);font-size:15px;margin-top:26px;max-width:62ch}
 
 .chart-wrap{border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--surface)}
+.chart-img-wrap{border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:#f5f6f8;padding:24px}
+.chart-img-wrap img{width:100%;height:auto;display:block;border-radius:6px}
 .chart{width:100%;border-collapse:collapse;font-family:var(--mono);font-variant-numeric:tabular-nums}
 .chart thead th{background:rgba(255,255,255,.03);text-align:left;font-family:var(--display);text-transform:uppercase;letter-spacing:1.5px;font-size:12px;color:var(--muted);padding:16px 22px;font-weight:700;border-bottom:1px solid var(--line)}
 .chart td{padding:14px 22px;font-size:15.5px;color:var(--text);border-bottom:1px solid rgba(255,255,255,.04)}
@@ -126,6 +128,7 @@
       <figure data-full="../assets/images/models/at-55-hero.jpg" data-cap="3/4 hero"><img src="../assets/images/models/at-55-hero.jpg" alt="AT-55 hero view" loading="lazy" /><figcaption>3/4 hero</figcaption></figure>
       <figure data-full="../assets/images/models/at-55-front.jpg" data-cap="Front"><img src="../assets/images/models/at-55-front.jpg" alt="AT-55 front view" loading="lazy" /><figcaption>Front</figcaption></figure>
       <figure data-full="../assets/images/models/at-55-rear.jpg" data-cap="Rear 3/4"><img src="../assets/images/models/at-55-rear.jpg" alt="AT-55 rear view" loading="lazy" /><figcaption>Rear 3/4</figcaption></figure>
+      <figure data-full="../assets/images/models/at-55-lowangle.jpg" data-cap="Low angle"><img src="../assets/images/models/at-55-lowangle.jpg" alt="AT-55 low-angle dramatic view" loading="lazy" /><figcaption>Low angle</figcaption></figure>
     </div>
   </div>
 </section>

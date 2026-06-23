@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
+Disallow: /.claude/
+
+# Generator scripts and pilot files (kept in repo for build provenance,
+# not meant for search indexes)
+Disallow: /_gen_pages.py
+Disallow: /_gen_services.py
+Disallow: /_gen_services_premium.py
+Disallow: /_phase0.py
+Disallow: /_newcards.py
+Disallow: /_seo_finish.py
+Disallow: /_us_rebrand.py
+Disallow: /_preview-theme.html
+Disallow: /PROGRESS.md
+Disallow: /CLAUDE_BRIEF.md
 
 Sitemap: https://atlasboom.com/sitemap.xml

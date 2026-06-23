@@ -2,8 +2,49 @@
 
 **Proje:** `C:\Users\PC\CLAUDE\ATLASBOOM.COM and ATLASWAY.NET PREMİUM DESİGN\atlasboom\`
 **Önizleme:** `.claude/launch.json` config **"atlasboom"** → http://localhost:4322 (python http.server). Atlasway ayrı (port 4323), o henüz V1.
-**Tek dosya site:** `index.html` (pure HTML/CSS/JS, GSAP+CountUp CDN) + `models/at-*.html` (13 model sayfası, generator'dan).
-**Tema:** koyu #0A0B0D + amber #F5A623, Barlow Condensed + Inter.
+**Tema (CURRENT):** koyu #0A0B0D + amber #F5A623, **Saira Condensed + Geist + Geist Mono** (Barlow+Inter eski).
+
+## 🚀 2026-06-23 TURNKEY OTURUM 2 — PREMIUM YAYIN (5 sayfa + 18 SEO landing)
+
+Kullanıcı 1 saatlik turnkey yetki verdi. Tüm site premium temaya geçirildi.
+
+**Yapı (yeni):**
+- `index.html` — Hero scroll-scrub (73 frame `frames/header/`) + Fleet (13 model grid) + Capacity slider + Service teaser + CTA. Marka sahibi tonu; "HSA" / "Engineered in Turkey" YOK.
+- **Yeni nav:** Cranes / Parts / Specs / Contact (yarı saydam, scroll'da koyulaşan).
+- `cranes/index.html` — 13 model showcase + boom config filtresi (5+2/6+2/7+2/heavy) + capacity matcher.
+- `parts/index.html` — 8 kategori chip (boom/cylinder/slewing/valve/winch/electrical/hose/structural) + email-only istek formu.
+- `specs/index.html` — 13 modelin karşılaştırma tablosu (sort: model/cap/reach).
+- `contact/index.html` — email-only form (mailto: fallback) + 3 info kart.
+- `contact/service-areas/index.html` — 18 SEO landing'in gruplu indeksi (3 svc block × 6 eyalet).
+
+**Paylaşılan asset:** `assets/css/shared.css` + `assets/js/shared.js` (nav/footer/btn/page-hero tokens). Index inline tutuldu (hero scroll-scrub'a özel). Model sayfaları + 18 service sayfası shared.css link veriyor.
+
+**13 model sayfası (yeniden üretildi):** `_gen_pages.py` premium TPL'ye çevrildi. Scroll-3D viewer + 3-açılı galeri lightbox + spec grid + load chart KORUNDU. CTA artık `../contact/`.
+
+**18 SEO landing (yeniden üretildi):** `_gen_services_premium.py` mevcut HTML'leri parse ediyor → premium shell ile sarmalıyor. Mevcut body içerik + FAQPage schema korunur, yeni Service + BreadcrumbList JSON-LD eklenir.
+
+**SEO optimizasyonu (SEO_OVERRIDES + skill kullanıldı):**
+- Chicago crane-rental + concrete-pumping: özel title/desc/intro + "Chicago neighborhoods served" extra H2 (Loop, River North, West Loop vb).
+- Kalan 16 landing: kısa title `{Service} {Region} | Atlas Boom` (hepsi <60 char).
+- LocalBusiness schema her sayfada Atlas Chicago LLC ile.
+- BreadcrumbList: Home → Service Areas → Page.
+
+**sitemap.xml:** 37 URL (core + 13 model + 18 service). Chicago landings priority 0.8-0.9, diğerleri 0.7.
+**robots.txt:** generator script'leri ve `.claude/` Disallow'da.
+
+**Skill kullanıldı:** `npx claude-code-templates@latest --skill business-marketing/seo-optimizer` → `.claude/skills/seo-optimizer/SKILL.md`.
+
+**Push:** ATLASMK/atlasboom-site main, Pages rebuild tetiklendi.
+
+### ⚠️ HÂLÂ EKSİK (yeni oturum için)
+1. **4. ve 5. açı stüdyo fotoğrafları (rear+lowangle)** — 13 model × 2 = 26 görsel. Higgsfield ile (limit 8 eşzamanlı). Tema değişimi netleştiği için artık üretilebilir.
+2. **AT-100 / AT-120 yük tablosu** — katalogta sadece grafik. Karar: "on request" notu var, üretici spec sheet alınmadıkça boş kalır.
+3. **Domain yayını** — `atlasboom.com` hâlâ Netlify "for sale" landing'inde (darling-pithivier-d94ab3). Premium site GitHub Pages'da. DNS değişimi gerek.
+4. **Form backend** — şu an mailto:; Formspree/Netlify Forms entegrasyonu opsiyonel.
+
+---
+
+## ÖNCEKİ DURUM (resume için tutuluyor)
 
 ## DURUM: ÇOĞU BİTTİ ✅ (2026-06-22 turnkey oturum)
 

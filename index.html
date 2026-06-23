@@ -103,7 +103,7 @@ h1,h2,h3,h4,.dsp{font-family:var(--display);font-weight:700;line-height:1;letter
 
 /* ============ HERO (scroll-scrubbed frame sequence) ============ */
 .hero-scroll{position:relative;height:300vh}
-.hero-sticky{position:sticky;top:0;height:100dvh;overflow:hidden;background:#0A0B0D}
+.hero-sticky{position:sticky;top:0;height:100dvh;overflow:hidden;background:#0A0B0D url('assets/images/hero-industrial.jpg') center/cover no-repeat}
 .hero-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(180deg,rgba(10,11,13,.5) 0%,rgba(10,11,13,.12) 32%,rgba(10,11,13,.55) 72%,rgba(10,11,13,.92) 100%)}
@@ -438,9 +438,15 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;background:#fff;borde
     }
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     function pad(n){ return ('000' + n).slice(-4); }
+    function firstFrameReady(){
+      // Draw what the current scroll position calls for (not just frame 0):
+      // the user may have scrolled while the first frame was downloading.
+      if(typeof update === 'function') update();
+      else draw(0);
+    }
     for(var i = 1; i <= N; i++){
       var im = new Image();
-      im.onload = (function(){ loaded++; if(loaded === 1) draw(0); });
+      im.onload = (function(){ loaded++; if(loaded === 1) firstFrameReady(); });
       im.src = 'assets/images/frames/header/f-' + pad(i) + '.jpg';
       frames[i - 1] = im;
     }
